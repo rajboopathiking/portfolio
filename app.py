@@ -8,10 +8,6 @@ app = Flask(__name__,template_folder="templates",static_folder="static")
 with open("Model/RealERstateAnalysisModel.pkl", 'rb') as file:
     model1 = pickle.load(file)
 
-# Dummy labels, replace it with your actual labels if available
-with open("Model/labels.pkl","rb") as file:
-    label1 = pickle.load(file)
-
 @app.route("/")
 def home():
     return render_template('./index.html')
