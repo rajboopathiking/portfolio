@@ -1,10 +1,7 @@
 requests
-pandas 
+pandas
 numpy
-scikit-learn == 1.4
+scikit-learn==1.4
 flask
 gunicorn
-pickle
-python == 3.11
-
-
+python==3.11
