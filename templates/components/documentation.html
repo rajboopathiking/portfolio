@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>API Documentation</h1>
+
+    <h2>API Endpoint</h2>
+    <p>This API allows you to make predictions using the provided data.</p>
+
+    <h2>Usage</h2>
+    <p>To make a prediction, send a POST request to the following endpoint:</p>
+    <code>POST www.example.com/api/predict</code>
+
+    <h2>Request</h2>
+    <p>The request should be in JSON format with the following structure:</p>
+    <code>{"data": "your_data_here"}</code>
+    <p>Replace <code>"your_data_here"</code> with the data you want to use for prediction.</p>
+
+    <h2>Response</h2>
+    <p>The response will be a JSON object containing the prediction:</p>
+    <code>{"prediction": "predicted_value"}</code>
+    <p>Where <code>"predicted_value"</code> is the predicted result based on the input data.</p>
+
+    <h2>Example</h2>
+    <p>Example Python code to make a prediction:</p>
+    <pre><code>import requests
+
+url = "www.example.com/api/predict"
+data = {"data": "your_data_here"}
+result = requests.post(url, json=data)
+prediction = result.json()["prediction"]
+print(prediction)
+</code></pre>
+
+</body>
+
+</html>

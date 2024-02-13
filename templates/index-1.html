@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    {% include 'components/header.html' %}
+    {% include 'components/menu.html' %}
+    {% include 'components/section-1.html' %}
+    <div class="result">
+        <div class="result-1">
+            <h1 style="text-align: center; border-bottom: 2px solid purple; display: flex; justify-content: center; width: 200px; margin-bottom: 15px;">Prediction</h1>
+            <p>Model Accuracy > <h1>85%</h1>(85% means Predict to be Acceptable range) <br>
+                UnderFitting & OverFitting not Occurs <br>
+                <h1>Predicted Price: </h1><h3 style="margin-top: 5px; background-color: purple; color: white;">{{result}}</h3></p>
+        </div>
+    </div>
+    <form action="http://127.0.0.1:5000/">
+        <div style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+            <button class="btn-3" style="display:  flex; background-color: transparent; gap: 10px; border: none; justify-content: center;align-items: center;font-size: medium; font-weight: bold; width: 100px;">Return <ion-icon style="width: 20px;" name="reload-circle-outline"></ion-icon></button>
+        </div>
+    </form>
+    {% include 'components/footer.html' %}
+    
+    <script src="../static/js/main.js"></script>
+</body>
+</html>

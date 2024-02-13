@@ -1,0 +1,380 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    color: black;
+}
+.header-2 ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+}
+.header-2 ul li{
+    list-style: none;
+}
+.header-2 ul li a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    animation: nav-animation 1s linear;
+
+}
+
+
+@keyframes nav-animation{
+    from{
+        transform: translateY(-50px);
+        opacity: 0;
+
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }}
+.header-1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    animation: dev-scroll 1s linear;
+}
+@keyframes dev-scroll {
+    from{
+        transform: translateY(-50px);
+        opacity: 0;
+
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid white ;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.menu{ 
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:720px) {
+    .header-2,.sec1-img{
+        display: none;
+        
+    }
+
+    
+}
+@media screen and (min-width:720px) {
+    .menu{
+        display: none;
+    }
+    
+}
+.section-1{
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 1s;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.section-1 .sec-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.sec-1-p{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 330px;
+}
+
+.sec-1-p h1,.sec-1-p p,.btn-1,.w-1,.r-1,.Documents{
+    transition: all 1s ;
+    animation: nav-animation1 .5s linear .3s;
+}
+@keyframes nav-animation1 {
+    from {
+        transform: translateX(-50px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+    
+}
+.r-1{
+    width: 50%;
+    margin: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.section-2{display: flex;
+    flex-direction: column;
+justify-content: center;
+align-items: center;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.sec-1 img{
+    height: 250px;
+    width: 200px;
+    border-radius: 20px;
+    margin: 20px;
+
+}
+.btn-3:hover {
+    border-color: purple;
+    cursor: pointer;
+    color: purple;
+
+}
+.btn-3{
+    border-bottom: 2px solid black;
+}
+.btn-1,.btn-2{
+    background-color: lightgray;
+    color: black;
+    border: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: medium;
+    padding: 3px;
+    border-radius: 20px;
+    margin: 20px;
+    
+    
+}
+.btn-1:hover{
+    cursor: pointer;
+}
+.Documents ,.form-1{
+    font-size: large;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    transition: all 1s ;
+    animation: nav-animation1 .5s linear .3s;
+}
+.code-doc{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 1s ;
+    animation: nav-animation1 .5s linear .3s;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    gap: 20px;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    transition: all 1s ;
+    animation: nav-animation1 .5s linear .3s;
+}
+
+.form input{
+    margin-left: 35px;
+    margin-top: 15px;
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 50px;
+    width: 70%;
+    border: 2px solid black;
+}
+.menu-2 ul li{
+    list-style: none;
+    position: relative;
+    top: 10px;
+    text-align: center;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin: 20px;
+    
+}
+.menu-2 ul li a{
+    color: black;
+    text-decoration: none;
+}
+.menu-2 ul li a:hover{
+    cursor: pointer;
+}
+
+.m-2{
+    text-align: start;
+    margin-left: 20px;
+}
+.menu-2{
+    display: none;
+}
+
+.menu-outline:hover{
+    cursor: pointer;
+}
+@media screen and (max-width:280px) {
+    .Documents{
+        display: none;
+    }
+    .footer,.social-media{
+        padding-top: 50px;
+    }
+}
+@media screen and (max-width:320px) {
+    .sec-1-p{
+        width: 280px;
+    }
+    .Documents{
+        display: none;
+    }.form label input{
+        width: 80%;
+
+    }
+}
+
+@media screen and (max-width:720px) {
+    .form-main{
+        display: none;
+    }
+    .result-1{
+        display: none;
+    }
+}
+/* @media screen and (max-width:540px) {
+    nav{
+        width: 100%;
+    }
+    .main{
+        text-align: end;
+    }
+    .footer{
+        display: none;
+    }
+    .result-1{
+        display: none;
+    }
+} */
+.footer{
+    text-align: center;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-top: 10px;
+    padding-top: 10px;
+    transition: all 1s ;
+    animation: nav-animation1 .5s linear .3s;
+    
+    
+}
+.social-media ul{
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: all 1s ;
+    animation: nav-animation1 .5s linear .3s;
+}
+ion-icon{
+    height: 50px;
+    width: 25px;
+    color: blueviolet;
+
+}
+.menu{
+    position: absolute;
+    top: 5px;
+}
+
+.menu:hover{
+    cursor: pointer;}
+
+    .form input ,.deal-satisfaction select{
+        border: 2px solid lightgray;
+        border-radius: 20px;
+        width: 300px;
+        text-align: center;
+        position: relative;
+        right: 30px;
+      }
+      .form{
+        display: grid;
+        grid-template-columns: repeat(1,25%);
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+      }
+      
+      
+      
+       
+.deal-satisfaction,.sale-month,.birth-month,.birth-weekday,.sale-weekday,.birth-year{
+        height: 50px;
+        width: 300px;
+        border-radius: 20px;
+        text-align: center;
+        margin: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2px;
+      }
+      a{
+        display: flex;
+        justify-content: center; } 
+
+.result-1{
+    width: 60%;
+    border: 2px solid purple;
+    color: purple;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+    transition: all 1s ;
+    animation: nav-animation1 .5s linear .3s;
+    
+}
