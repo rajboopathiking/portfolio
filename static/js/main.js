@@ -14,51 +14,36 @@ function handle2Click(){
     }   
 }
 
-// var btn = document.querySelector("form")
-// btn.addEventListener("submit", function (event) {
-//     event.preventDefault(); // Prevent the default form submission
-  
-//     // Get form values
-//     const deal_satisfaction = document.getElementById("1").value;
-//     const property_type = document.getElementById("2").value;
-//     const area = document.getElementById("3").value;
-//     const sale_month = document.getElementById("4").value;
-//     const sale_weekday = document.getElementById("5").value;
-//     const birth_month = document.getElementById("6").value;
-//     const birth_year = document.getElementById("7").value;
-//     const birth_weekday = document.getElementById("8").value;
-//     const age = document.getElementById("9").value;
-  
-//     // Create data object
-//     const formData = {
-//       "deal_satisfaction": parseInt(deal_satisfaction),
-//       "property_type": parseInt(property_type),
-//       "area": parseFloat(area),
-//       "sale_month": parseInt(sale_month),
-//       "sale_weekday": parseInt(sale_weekday),
-//       "birth_month": parseInt(birth_month),
-//       "birth_year": parseInt(birth_year),
-//       "birth_weekday": parseInt(birth_weekday),
-//       "age": parseInt(age)
-//     };
-  
-//     // Make the POST request
-//     fetch('http://127.0.0.1:5000/api/predict1', {
-//       method: "POST",
-//       mode: 'no-cors',
-//       headers: {
-//         'Access-Control-Allow_Origin': '*',
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(formData),
+// document.getElementById(".form").addEventListener("submit", function(event) {
+//     event.preventDefault(); // Prevent default form submission
+//     var formData = {
+//     "deal-satisfaction": document.getElementById(".dealSatisfaction").value,
+//     "property_type": document.getElementById(".property").value,
+//     "area": document.getElementById(".area").value,
+//     "sale_month": document.getElementById(".saleMonth").value,
+//     "sale_weekday": document.getElementById(".saleWeekday").value,
+//     "birth_month": document.getElementById(".birthMonth").value,
+//     "birth_year": document.getElementById(".birthYear").value,
+//     "birth_weekday": document.getElementById(".birthWeekday").value,
+//     "age": document.getElementById(".age").value
+// };
+// fetch("/api/predict1", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(formData)
 //     })
-//       .then(response => response.json())
-//       .then(data => {
-//         console.log(data["prediction"])
-//       })
-//   });
-
-// var test = document.querySelector("form")
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data);
+//         // Process the response data here
+//     })
+//     .catch(error => {
+//         console.error("Error:", error);
+//     });
+// });
+// var test = document.querySelector(".form")
 // var result = document.querySelector(".result")
 // test.addEventListener('submit', function (event) {
 //     event.preventDefault();
@@ -70,8 +55,8 @@ function handle2Click(){
 //         // Prevent form submission
 //         // Stop further validation if any input is empty
 //       }
-//     }
-  
+//     }}
+// )
 //     // If all inputs are filled, you can show the result
   
 //     result.style.display = "block";
