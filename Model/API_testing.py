@@ -48,7 +48,7 @@
 
 
 import requests
-url = "http://127.0.0.1:5000/api/predict1"
+url = "https://portfolio-project-1.onrender.com/api/predict"
 data = {
     "deal-statisfaction":4,"property_type":51,"area":1608,"sale_month":3,"sale_weekday":3,
 "birth_month":5,"birth_year":1962,"birth_weekday":5,"age":39
