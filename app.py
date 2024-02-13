@@ -17,14 +17,14 @@ def home():
     return render_template('./index.html')
 
 
-@app.route("/predict1", methods=["POST"])
+@app.route("/predict", methods=["POST"])
 def prediction1():
     data  = [int(x) for x in request.form.values()]
     prediction = model1.predict(np.array([data]))
     return render_template("index-1.html", result=prediction[0])
 
 
-@app.route("/api/predict1", methods=["POST"])
+@app.route("/api/predict", methods=["POST"])
 def predict1():
     try:
         # Get data from the POST request

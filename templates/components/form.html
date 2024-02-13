@@ -24,7 +24,7 @@
         <div class="form-1">
             <h1>Prediction</h1>
         </div>
-        <form class="form" action="http://127.0.0.1:5000/predict1" method="post">
+        <form class="form" action="{{url_for('prediction1')}}" method="post">
             <label>Deal-satisfaction:
                 <select class="deal-satisfaction" placeholder="deal-satisfaction" id="1" name="deal_satisfaction"
                     required>
