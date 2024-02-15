@@ -49,6 +49,34 @@ def predict1():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+model2 = joblib.load("Model/Model - Insta Analysis")
+
+@app.route("/api/predict2", methods=["POST"])
+def predict2():
+    try:
+        # Get data from the POST request
+        data = request.get_json()
+        # Extract features from the received data
+        fromhome = data['From Home']
+        fromhastag = data['From Hashtags']
+        fromexplore = data['From Explore']
+        fromother = data['From Other']
+        saves = data['Saves']
+        comments = data['Comments']
+        shares = data['Shares']  # No transformation needed
+        likes = data['Likes']
+        visits = data['Profile Visits']
+        follows = data['Follows']
+
+        # Make prediction using the model
+        prediction = model2.predict(pd.DataFrame([[fromhome,fromhastag,fromexplore,fromother,saves,comments,shares,likes,visits,follows]]))
+
+        # Return the prediction as a JSON response
+        return jsonify({"prediction": prediction[0]}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ ==  "__main__":
     app.run(debug=True)
