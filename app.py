@@ -2,11 +2,22 @@ from flask import Flask,jsonify,request,render_template,url_for,redirect
 import pickle
 import pandas as pd
 import numpy as np
+import joblib
+
+data = pd.read_csv("Model/Data.csv")
+data.index = range(0,1960)
+
+cs = joblib.load("Model/Cosine")
+
 app = Flask(__name__,template_folder="templates",static_folder="static")
 
 # Load the machine learning model
 with open("Model/RealERstateAnalysisModel.pkl", 'rb') as file:
     model1 = pickle.load(file)
+
+# Dummy labels, replace it with your actual labels if available
+# ith open("Model/labels.pkl","rb") as file:
+#     label1 = pickle.load(file)w
 
 @app.route("/")
 def home():
@@ -76,7 +87,109 @@ def predict2():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
 
+@app.route("/api/predict3",methods=["POST"])
+def recommended_system():
+    try:
+        inputs = str(request.get_json()["Content"]).lower()
+        ind = []
+        for i in range(0,1960):
+            if inputs in data.iloc[i,:]["content"]:
+                ind.append(i)
+        similarity_scores = list(enumerate(cs[ind[0]]))
+        similarity_scores = sorted(similarity_scores, key=lambda x: x[1], reverse=True)
+        i = 0
+        result =[]
+        for col in similarity_scores:
+            
+            result.append(data[data.index==col[0]][["Title","Image","Link","Votes","Views"]].values[0])
+            i += 1
+            if i >6:
+                break
+        return jsonify({"Result":{
+        "Title":[result[0][0],result[1][0],result[2][0],result[3][0],result[4][0],result[5][0]],
+        "Image":[result[0][1],result[1][1],result[2][1],result[3][1],result[4][1],result[5][1]],
+        "Link": [result[0][2],result[1][2],result[2][2],result[3][2],result[4][2],result[5][2]],
+        "Votes": [result[0][3],result[1][3],result[2][3],result[3][3],result[4][3],result[5][3]],
+        "Views": [result[0][4],result[1][4],result[2][4],result[3][4],result[4][4],result[5][4]]
+    }
+    }),200
+    except:
+        return jsonify({"error": str(f"{inputs} Not Found")})
+    
+# model-4
+from sklearn.preprocessing import LabelEncoder
+label = joblib.load("Model/Country")
+model4 = joblib.load("Model/Classification")
+    
+@app.route("/api/predict4",methods=["POST"])
+def predict4():
+    try:
+        # Get data from the POST request
+        data = request.get_json()
+        # Extract features from the received data
+        country= data['country']
+        Country = label.transform([country])
+        days_on_platform = data['days_on_platform']
+        minutes_watched = data['minutes_watched']
+        courses_started = data['courses_started']
+        practice_exams_started = data['practice_exams_started']
+        practice_exams_passed = data['practice_exams_passed']
+        minutes_spent_on_exams = data['minutes_spent_on_exams'] 
+
+
+        df = pd.DataFrame([[Country,days_on_platform,
+                                                   minutes_watched,courses_started,
+                                                          practice_exams_started,practice_exams_passed,
+                                                        minutes_spent_on_exams]])
+        # # Make prediction using the model
+        prediction = model4.predict(df)
+        if prediction == 0:
+            result = "Not Purchased"
+        else:
+            result = "purchased"
+        # Return the prediction as a JSON response
+        return result, 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+model5 = joblib.load("Model/Model-heart_disaese")
+
+@app.route("/api/predict5",methods=["POST"])
+def predict5():
+    try:
+        # Get data from the POST request
+        data = request.get_json()
+        # Extract features from the received data
+        age= data['age']
+        sex = data['sex']
+        cystolic_pressure = data['cp']
+        trtbps = data['trtbps']
+        cholesterol = data['chol']
+        fbs = data['fbs']
+        restecg = data['restecg'] 
+        thalachh = data["thalachh"]
+        exng = data['exng']
+        oldpeak = data['oldpeak']
+
+        slp = data['slp']
+        caa = data['caa'] 
+        thall = data['thall']
+
+        df = pd.DataFrame([[age,sex,cystolic_pressure,trtbps,cholesterol,fbs,restecg,thalachh,exng,oldpeak,slp,caa,thall]])
+        # # Make prediction using the model
+        prediction = model5.predict(df)
+        if prediction == 0:
+            result = "No Disease"
+        else:
+            result = "Disease"
+        # Return the prediction as a JSON response
+        return result, 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ ==  "__main__":
     app.run(debug=True)
