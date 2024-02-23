@@ -3,7 +3,6 @@ import pickle
 import pandas as pd
 import numpy as np
 import joblib
-import pandas as pd
 
 data = pd.read_csv("Model/Data.csv")
 data.index = range(0,1960)
