@@ -1,4 +1,5 @@
 from flask import Flask,jsonify,request,render_template,url_for,redirect
+from flask_cors import CORS 
 import pickle
 import pandas as pd
 import numpy as np
@@ -10,7 +11,7 @@ data.index = range(0,1960)
 cs = joblib.load("Model/Cosine")
 
 app = Flask(__name__,template_folder="templates",static_folder="static")
-
+CORS(app)
 # Load the machine learning model
 with open("Model/RealERstateAnalysisModel.pkl", 'rb') as file:
     model1 = pickle.load(file)
