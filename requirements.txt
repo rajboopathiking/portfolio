@@ -6,3 +6,5 @@ flask
 gunicorn
 joblib
 statsmodels
+flask-cors
+flask-restful
