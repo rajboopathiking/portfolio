@@ -151,7 +151,7 @@ def predict4():
         else:
             result = "purchased"
         # Return the prediction as a JSON response
-        return result, 200
+        return jsonify({"Result":result}), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
