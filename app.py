@@ -132,12 +132,12 @@ def predict4():
         # Extract features from the received data
         country= data['country']
         Country = label.transform([country])
-        days_on_platform = data['days_on_platform']
-        minutes_watched = data['minutes_watched']
-        courses_started = data['courses_started']
-        practice_exams_started = data['practice_exams_started']
-        practice_exams_passed = data['practice_exams_passed']
-        minutes_spent_on_exams = data['minutes_spent_on_exams'] 
+        days_on_platform = int(data['days_on_platform'])
+        minutes_watched = int(data['minutes_watched'])
+        courses_started = int(data['courses_started'])
+        practice_exams_started = int(data['practice_exams_started'])
+        practice_exams_passed = int(data['practice_exams_passed'])
+        minutes_spent_on_exams = int(data['minutes_spent_on_exams'])
 
 
         df = pd.DataFrame([[Country,days_on_platform,
